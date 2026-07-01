@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function DashboardPage() {
+export default async function Page() {
     const supabase = await createClient();
 
     const { data: reservations, error } = await supabase
