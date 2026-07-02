@@ -21,7 +21,6 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
     { label: "Home", icon: Home, href: "/member/home" },
-    { label: "My Booking", icon: Calendar, href: "/member/reservation" },
     { label: "Booking History", icon: Clock, href: "/member/reservation/history" },
     { label: "Booking Online", icon: Plus, href: "/member/reservation/add" },
     { label: "Pilihan Ruangan", icon: Building2, href: "/member/rooms" },

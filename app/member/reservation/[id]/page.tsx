@@ -3,13 +3,10 @@
 
 import {
     ArrowLeft,
-    Home,
     Calendar,
     Clock,
-    Plus,
     Building2,
     User,
-    LogOut,
     CheckCircle2,
     ClipboardList,
     Pencil,
@@ -17,16 +14,9 @@ import {
     Info,
     History,
 } from "lucide-react";
+import Sidebar from "@/components/member/MemberSidebar";
 
 export default function BookingDetailPage() {
-    const menuItems = [
-        { label: "Home", icon: Home, active: false },
-        { label: "My Booking", icon: Calendar, active: false },
-        { label: "Booking History", icon: Clock, active: true },
-        { label: "Booking Online", icon: Plus, active: false },
-        { label: "Pilihan Ruangan", icon: Building2, active: false },
-    ];
-
     const reservation = {
         id: "RSV-2025-0001",
         status: "Approved",
@@ -85,69 +75,12 @@ export default function BookingDetailPage() {
     return (
         <div className="min-h-screen w-full bg-white flex">
         {/* Sidebar */}
-        <aside className="w-60 shrink-0 min-h-screen bg-[#DCE9FB] flex flex-col justify-between">
-            <div>
-            <div className="px-6 pt-8 pb-6">
-                <div className="w-24 h-24 mx-auto mb-3 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-20 h-20">
-                    <polygon
-                    points="50,5 61,38 96,38 68,59 79,92 50,71 21,92 32,59 4,38 39,38"
-                    fill="#1E4E9C"
-                    />
-                    <path d="M50 20 L62 45 L50 60 L38 45 Z" fill="#2E9E5B" />
-                    <path d="M50 20 L62 45 L50 45 Z" fill="#4CAF6E" />
-                </svg>
-                </div>
-                <p className="text-center font-extrabold text-[13px] leading-tight tracking-wide text-[#0B2447]">
-                PERPUSTAKAAN NASIONAL
-                </p>
-                <p className="text-center text-[10px] tracking-widest text-[#3A5A85] mt-0.5">
-                REPUBLIK INDONESIA
-                </p>
-            </div>
-
-            <nav className="px-4 space-y-1.5">
-                {menuItems.map((item) => (
-                <button
-                    key={item.label}
-                    type="button"
-                    className={`w-full flex items-center gap-3 rounded-lg text-sm font-semibold px-4 py-3 transition-colors ${
-                    item.active
-                        ? "bg-[#1E4FA3] text-white shadow-sm"
-                        : "text-[#2C4A75] hover:bg-white/60"
-                    }`}
-                >
-                    <item.icon className="w-4 h-4" />
-                    {item.label}
-                </button>
-                ))}
-            </nav>
-            </div>
-
-            <div>
-            <div className="flex items-center gap-3 px-5 py-4 bg-[#0B2E6B]">
-                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
-                <User className="w-5 h-5 text-[#0B2E6B]" />
-                </div>
-                <div className="leading-tight">
-                <p className="text-white text-sm font-semibold">Andi Pratama</p>
-                <p className="text-[#B7C8E8] text-xs mb-1">MBR-0001</p>
-                <span className="inline-block rounded bg-[#1E4FA3] text-white text-[10px] font-semibold px-2 py-0.5">
-                    Member
-                </span>
-                </div>
-            </div>
-            <div className="px-4 py-4 bg-white">
-                <button
-                type="button"
-                className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#F04438] text-white text-sm font-semibold px-4 py-2.5 hover:bg-[#d63c31] transition-colors"
-                >
-                <LogOut className="w-4 h-4" />
-                Logout
-                </button>
-            </div>
-            </div>
-        </aside>
+        <Sidebar
+            user={{ name: "Andi Pratama", memberId: "MBR-0001", role: "Member" }}
+            onLogout={() => {
+                // TODO: hubungkan ke logic logout (mis. clear session lalu redirect ke /login)
+            }}
+        />
 
         {/* Main content */}
         <main className="flex-1 px-10 py-8">
