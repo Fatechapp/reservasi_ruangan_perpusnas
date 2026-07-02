@@ -1,6 +1,7 @@
 // app/member/home/page.tsx
 "use client";
 
+import Link from "next/link";
 import {
     Calendar,
     Clock,
@@ -14,17 +15,10 @@ import Sidebar from "@/components/member/MemberSidebar";
 export default function MemberHomePage() {
     const quickActions = [
         {
-        title: "My Booking",
-        description: "Lihat dan kelola booking aktif Anda.",
-        icon: Calendar,
-        bg: "bg-[#EAF2FE]",
-        iconBg: "bg-[#CFE0FB]",
-        iconColor: "text-[#1E4FA3]",
-        },
-        {
         title: "Booking History",
         description: "Lihat riwayat booking yang telah selesai.",
         icon: Clock,
+        href: "/member/reservation/history",
         bg: "bg-[#EAF9EF]",
         iconBg: "bg-[#C7EFD4]",
         iconColor: "text-[#1B9C5A]",
@@ -33,6 +27,7 @@ export default function MemberHomePage() {
         title: "Booking Online",
         description: "Lakukan pemesanan ruangan baru.",
         icon: Plus,
+        href: "/member/reservation/add",
         bg: "bg-[#FEF6E7]",
         iconBg: "bg-[#FCE9BE]",
         iconColor: "text-[#B7791F]",
@@ -41,6 +36,7 @@ export default function MemberHomePage() {
         title: "Pilihan Ruangan",
         description: "Lihat informasi dan pilihan ruangan.",
         icon: Building2,
+        href: "/member/rooms",
         bg: "bg-[#F5EEFE]",
         iconBg: "bg-[#E4D2FA]",
         iconColor: "text-[#7C3AED]",
@@ -159,11 +155,11 @@ export default function MemberHomePage() {
             </div>
 
             {/* Quick actions */}
-            <div className="grid grid-cols-4 gap-5 mb-8">
+            <div className="grid grid-cols-3 gap-5 mb-8">
             {quickActions.map((action) => (
-                <button
+                <Link
                 key={action.title}
-                type="button"
+                href={action.href}
                 className={`${action.bg} rounded-xl p-5 text-left flex items-start justify-between hover:shadow-md transition-shadow`}
                 >
                 <div className="flex items-start gap-3">
@@ -182,7 +178,7 @@ export default function MemberHomePage() {
                     </div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-gray-400 shrink-0 mt-1" />
-                </button>
+                </Link>
             ))}
             </div>
 
@@ -195,9 +191,9 @@ export default function MemberHomePage() {
                     <Calendar className="w-5 h-5 text-[#1E4FA3]" />
                     <h2 className="font-bold text-[#0B2447]">My Booking</h2>
                 </div>
-                <a href="#" className="text-sm text-[#1E4FA3] font-semibold hover:underline">
+                <Link href="/member/reservation" className="text-sm text-[#1E4FA3] font-semibold hover:underline">
                     Lihat semua
-                </a>
+                </Link>
                 </div>
 
                 <div className="space-y-3 mb-4">
@@ -235,12 +231,12 @@ export default function MemberHomePage() {
                 ))}
                 </div>
 
-                <button
-                type="button"
-                className="w-full rounded-lg border border-[#CFE0FB] text-[#1E4FA3] text-sm font-semibold py-2.5 hover:bg-[#EAF2FE] transition-colors"
+                <Link
+                href="/member/reservation"
+                className="w-full rounded-lg border border-[#CFE0FB] text-[#1E4FA3] text-sm font-semibold py-2.5 hover:bg-[#EAF2FE] transition-colors flex items-center justify-center"
                 >
                 Lihat semua booking aktif
-                </button>
+                </Link>
             </div>
 
             {/* Pilihan Ruangan */}
@@ -252,9 +248,9 @@ export default function MemberHomePage() {
                     Informasi Pilihan Ruangan
                     </h2>
                 </div>
-                <a href="#" className="text-sm text-[#1E4FA3] font-semibold hover:underline">
+                <Link href="/member/rooms" className="text-sm text-[#1E4FA3] font-semibold hover:underline">
                     Lihat semua
-                </a>
+                </Link>
                 </div>
 
                 <div className="space-y-3 mb-4">
@@ -287,12 +283,12 @@ export default function MemberHomePage() {
                 ))}
                 </div>
 
-                <button
-                type="button"
-                className="w-full rounded-lg border border-[#CFE0FB] text-[#1E4FA3] text-sm font-semibold py-2.5 hover:bg-[#EAF2FE] transition-colors"
+                <Link
+                href="/member/rooms"
+                className="w-full rounded-lg border border-[#CFE0FB] text-[#1E4FA3] text-sm font-semibold py-2.5 hover:bg-[#EAF2FE] transition-colors flex items-center justify-center"
                 >
                 Lihat semua ruangan
-                </button>
+                </Link>
             </div>
             </div>
 
