@@ -1,3 +1,4 @@
+// components/admin/ReservationsTable.tsx
 "use client";
 
 import { useMemo, useState } from "react";
