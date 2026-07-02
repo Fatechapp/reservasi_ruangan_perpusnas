@@ -1,4 +1,3 @@
-"use client";
 import { createClient } from "@/lib/supabase/server";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { ReservationsTable } from "@/components/admin/ReservationsTable";
